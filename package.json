@@ -1,0 +1,161 @@
+{
+  "name": "env-watcher",
+  "displayName": "Environment Variable Watcher",
+  "description": "Automatically watch and maintain .env and .env.example files from code usage",
+  "version": "0.1.0",
+  "publisher": "szmazhr",
+  "author": {
+    "name": "Shahzar Mazhar",
+    "email": "mohdhshazar.1996@gmail.com",
+    "url": "https://shahzar.in"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szmazhr/env-watcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/szmazhr/env-watcher/issues"
+  },
+  "homepage": "https://github.com/szmazhr/env-watcher#readme",
+  "keywords": [
+    "environment",
+    "env",
+    "dotenv",
+    ".env",
+    "environment variables",
+    "env watcher",
+    "auto-generate",
+    "typescript",
+    "javascript"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "envWatcher.setup",
+        "title": "Env Watcher: Run Setup Wizard"
+      },
+      {
+        "command": "envWatcher.scanWorkspace",
+        "title": "Env Watcher: Scan Workspace for Environment Variables"
+      },
+      {
+        "command": "envWatcher.enable",
+        "title": "Env Watcher: Enable"
+      },
+      {
+        "command": "envWatcher.disable",
+        "title": "Env Watcher: Disable"
+      },
+      {
+        "command": "envWatcher.updateEnvFiles",
+        "title": "Env Watcher: Update .env Files"
+      }
+    ],
+    "configuration": {
+      "title": "Environment Variable Watcher",
+      "properties": {
+        "envWatcher.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable or disable the environment variable watcher"
+        },
+        "envWatcher.setupCompleted": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether the setup wizard has been completed for this workspace"
+        },
+        "envWatcher.autoCreateFiles": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically create .env files when variables are discovered"
+        },
+        "envWatcher.filesToWatch": {
+          "type": "array",
+          "default": [
+            "**/*.ts",
+            "**/*.js",
+            "**/*.tsx",
+            "**/*.jsx"
+          ],
+          "description": "Glob patterns for files to watch for environment variables",
+          "items": {
+            "type": "string"
+          }
+        },
+        "envWatcher.patterns": {
+          "type": "array",
+          "default": [
+            "process\\.env\\.(\\w+)",
+            "import\\.meta\\.env\\.(\\w+)"
+          ],
+          "description": "Regular expression patterns to match environment variables (use capturing group for variable name)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "envWatcher.envFile": {
+          "type": "string",
+          "default": ".env",
+          "description": "Path to the .env file relative to workspace root"
+        },
+        "envWatcher.exampleFile": {
+          "type": "string",
+          "default": ".env.example",
+          "description": "Path to the .env.example file relative to workspace root"
+        },
+        "envWatcher.examplePlaceholder": {
+          "type": "string",
+          "default": "",
+          "description": "Default placeholder value for .env.example file"
+        },
+        "envWatcher.includeFilePaths": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include comments in .env files showing where each variable is used"
+        },
+        "envWatcher.excludePatterns": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/dist/**",
+            "**/out/**",
+            "**/.git/**",
+            "**/.*/**",
+            ".*/**",
+            "_*/**"
+          ],
+          "description": "Glob patterns to exclude from watching",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}

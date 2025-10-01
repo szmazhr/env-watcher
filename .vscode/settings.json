@@ -1,0 +1,15 @@
+{
+  "envWatcher.filesToWatch": [
+    "src/config.ts"
+  ],
+  "envWatcher.patterns": [
+    "process\\.env\\.(\\w+)",
+    "import\\.meta\\.env\\.(\\w+)"
+  ],
+  "envWatcher.envFile": ".env",
+  "envWatcher.exampleFile": ".env.example",
+  "envWatcher.examplePlaceholder": "",
+  "envWatcher.autoCreateFiles": true,
+  "envWatcher.setupCompleted": true,
+  "envWatcher.enabled": true
+}
