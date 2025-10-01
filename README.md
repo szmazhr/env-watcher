@@ -26,7 +26,7 @@ A VS Code extension that watches your code for environment variable usage and he
 1. Install dependencies and compile: `npm install && npm run compile`
 2. Package the extension: `npm install -g @vscode/vsce && vsce package`
 3. Install via Command Palette: `Extensions: Install from VSIX`
-4. Or via command line: `code --install-extension env-watcher-0.0.1.vsix`
+4. Or via command line: `code --install-extension env-watcher-0.1.0.vsix`
 
 ## Getting Started
 

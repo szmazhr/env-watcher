@@ -29,6 +29,11 @@
     "typescript",
     "javascript"
   ],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0078d4",
+    "theme": "dark"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
